@@ -5,6 +5,6 @@ export interface Task {
   status: string;
   created_at: Date;
   updated_at: Date;
-  affectedRows: any;
-  insertId: any;
+  insertId: null | number;
+  affectedRows: null | number;
 }

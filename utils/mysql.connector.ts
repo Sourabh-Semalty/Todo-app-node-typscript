@@ -1,5 +1,5 @@
-import { createPool, Pool } from "mysql";
-import { DATA_SOURCES } from "../db/config/vars.config";
+import { createPool, Pool } from 'mysql';
+import { DATA_SOURCES } from '../db/config/vars.config';
 const dataSource = DATA_SOURCES.mySqlDataSource;
 let pool: Pool;
 
@@ -15,11 +15,8 @@ export const init = () => {
       password: dataSource.DB_PASSWORD,
       database: dataSource.DB_DATABASE,
     });
-
-    console.debug("MySql Adapter Pool generated successfully");
   } catch (error) {
-    console.error("[mysql.connector][init][Error]: ", error);
-    throw new Error("failed to initialized pool");
+    throw new Error('failed to initialized pool');
   }
 };
 
@@ -37,7 +34,7 @@ export const execute = <T>(
   try {
     if (!pool)
       throw new Error(
-        "Pool was not created. Ensure pool is created when running the app."
+        'Pool was not created. Ensure pool is created when running the app.'
       );
 
     return new Promise<T>((resolve, reject) => {
@@ -47,7 +44,6 @@ export const execute = <T>(
       });
     });
   } catch (error) {
-    console.error("[mysql.connector][execute][Error]: ", error);
-    throw new Error("failed to execute MySQL query");
+    throw new Error('failed to execute MySQL query');
   }
 };
