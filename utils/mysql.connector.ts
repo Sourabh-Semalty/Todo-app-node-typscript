@@ -1,5 +1,7 @@
-import { createPool, Pool } from 'mysql';
+import dotenv from "dotenv";
+dotenv.config();
 import { DATA_SOURCES } from '../db/config/vars.config';
+import { createPool, Pool } from 'mysql';
 const dataSource = DATA_SOURCES.mySqlDataSource;
 let pool: Pool;
 
